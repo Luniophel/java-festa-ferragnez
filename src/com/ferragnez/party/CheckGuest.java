@@ -45,13 +45,31 @@ public class CheckGuest {
 				"Rachel Zeilic"
 				};
 		
-		//Chiedi nome Utente
-		System.out.println("Inserisci le tue credenziali");
-		System.out.print("\r" + "Nome: ");
-		String datiUtente = scan.nextLine();
-		System.out.print("Cognome: ");
-		datiUtente = datiUtente + " " + scan.nextLine();
-		System.out.println("Sei " + datiUtente);
+		//
+		String confermo = null;
+		
+		//Questo ciclo si ripete se l'utente non conferma i dati inseriti
+		do {
+			//Chiedi nome Utente
+			System.out.println("Inserisci le tue credenziali");
+			System.out.print("\r" + "Nome: ");
+			String datiUtente = scan.nextLine();
+			
+			//Alcuni utenti non hanno cognome
+			System.out.print("Cognome: \n(Lascia vuoto se non hai usato il cognome durante la registrazione)");
+			datiUtente = datiUtente + scan.nextLine(); //Qui verrà salvato il nome dell'utente
+			System.out.print("Confermi i dati inseriti?\nScrivi 'SI' per confermare: ");
+			confermo = scan.nextLine();
+			
+			//Chiedo se l'utente è sicuro dei dati inseriti
+			if (confermo.equalsIgnoreCase("SI")) { //Se risponde SI, esegue il controllo array
+			} else {
+				System.out.println("Risposta non valida. Riprova.");
+			} 
+		} while (!(confermo.equalsIgnoreCase("SI")));
+		
+		
+		
 	}
 
 }
