@@ -57,9 +57,9 @@ public class CheckGuest {
 			datiUtente = scan.nextLine();
 			
 			//Alcuni utenti non hanno cognome
+			System.out.println("(Lascia vuoto se non hai usato il cognome durante la registrazione)");
 			System.out.print("Cognome: ");
 			datiUtente = datiUtente + scan.nextLine(); //Qui verrà salvato il nome dell'utente
-			System.out.println("(Lascia vuoto se non hai usato il cognome durante la registrazione)");
 			System.out.print("Confermi i dati inseriti?\nScrivi 'SI' per confermare: ");
 			confermo = scan.nextLine();
 			
@@ -74,13 +74,21 @@ public class CheckGuest {
 		int counter = 0;
 		boolean check = false;
 		
-		while (check == false && counter < listaNomi.length) {
+		//Versione base, con ciclo WHILE
+//		while (check == false && counter < listaNomi.length) {
+//			if(datiUtente.equalsIgnoreCase(listaNomi[counter])) {
+//				check = true;
+//			} 
+//			else {
+//				counter++;
+//			}
+//		}
+		
+		//VERSIONE BONUS, con ciclo FOR
+		for (counter = 0; counter < listaNomi.length; counter++ ) {
 			if(datiUtente.equalsIgnoreCase(listaNomi[counter])) {
 				check = true;
 			} 
-			else {
-				counter++;
-			}
 		}
 		
 		//Comunico se ho trovato il nome nella lista
