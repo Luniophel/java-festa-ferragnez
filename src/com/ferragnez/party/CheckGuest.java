@@ -25,10 +25,6 @@ public class CheckGuest {
 	 */
 
 	public static void main(String[] args) {
-		
-		//Importazioni
-		Scanner scan = new Scanner(System.in);
-		
 		//Lista nomi
 		String listaNomi[] = 
 				{
@@ -45,9 +41,11 @@ public class CheckGuest {
 				"RachelZeilic"
 				};
 		
-		//
+		//Variabili
 		String confermo = null;
 		String datiUtente;
+		
+		Scanner scan = new Scanner(System.in);
 		
 		//Questo ciclo si ripete se l'utente non conferma i dati inseriti
 		do {
@@ -69,37 +67,37 @@ public class CheckGuest {
 				System.out.println("\nRisposta non valida. Riprova.\n");
 			} 
 		} while (!(confermo.equalsIgnoreCase("SI")));
-		
+
 		//Confronto con i nomi della lista
 		int counter = 0;
 		boolean check = false;
 		
 		//Versione base, con ciclo WHILE
-//		while (check == false && counter < listaNomi.length) {
-//			if(datiUtente.equalsIgnoreCase(listaNomi[counter])) {
-//				check = true;
-//			} 
-//			else {
-//				counter++;
-//			}
-//		}
-		
-		//VERSIONE BONUS, con ciclo FOR
-		for (counter = 0; counter < listaNomi.length; counter++ ) {
+		while (check == false && counter < listaNomi.length) {
 			if(datiUtente.equalsIgnoreCase(listaNomi[counter])) {
 				check = true;
 			} 
+			else {
+				counter++;
+			}
 		}
 		
-		//Comunico se ho trovato il nome nella lista
-		if(check) {
-			System.out.println("Accesso consentito. Divertiti!");
-		}
-		else {
-			System.out.println("Accesso negato. Torna a casa!");
+		//VERSIONE BONUS, con ciclo FOR
+//		for (counter = 0; counter < listaNomi.length; counter++ ) {
+//			if(datiUtente.equalsIgnoreCase(listaNomi[counter])) {
+//				check = true;
+//			} 
+//		}
+//		
+//		//Comunico se ho trovato il nome nella lista
+//		if(check) {
+//			System.out.println("Accesso consentito. Divertiti!");
+//		}
+//		else {
+//			System.out.println("Accesso negato. Torna a casa!");
+//		}
+		scan.close();
 
-		}
-		
 	}
 
 }
